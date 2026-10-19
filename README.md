@@ -1,67 +1,40 @@
-# Atividade-Encapsulamento-de-Saldo-e-Hierarquia-de-Veículos
-Exercicio 1
-class ContaBancaria:
-    def __init__(self, titular, numero_conta):
-        self.titular = titular
-        self.numero_conta = numero_conta
-        self.__saldo = 0
+# Sistema de Veículos — Herança e Polimorfismo
 
-    def get_saldo(self, valor):
-        if valor > 0:
-            self.__saldo += valor
-            print(f"Depósito de R${valor} feito com sucesso.")
-        else:
-            print("Valor inválido para depósito.")
+Projeto desenvolvido em **Python** para praticar conceitos de **Programação Orientada a Objetos (POO)**, utilizando classes, herança e sobrescrita de métodos.
 
-    def set_saldo(self, valor):
-        if valor <= self.__saldo:
-            self.__saldo -= valor
-            print(f"Saque de R${valor} realizado.")
-        else:
-            print("Saldo insuficiente.")
+## Objetivo
 
-    def consultar_saldo(self):
-        print(f"Saldo atual: R${self.__saldo}")
+Criar um sistema simples que represente diferentes tipos de veículos, permitindo que carros e motos tenham características próprias e comportamentos específicos.
 
-    def exibir_extrato(self):
-        print(f"Titular: {self.titular}")
-        print(f"Número da Conta: {self.numero_conta}")
-        print(f"Saldo: R${self.__saldo}")
+## Conceitos utilizados
 
-conta1 = ContaBancaria("Majulle", "9888345697")
-conta1.get_saldo(2000)
-conta1.set_saldo(300)
-conta1.consultar_saldo()
-conta1.exibir_extrato()
+- Classes e objetos
+- Construtores (`__init__`)
+- Atributos e métodos
+- Herança
+- `super()`
+- Sobrescrita de métodos
+- Polimorfismo
 
+## Classes
 
-Exercício 2
-class Veiculo:
-    def __init__(self, marca, modelo):
-        self.marca = marca
-        self.modelo = modelo
+- **Veiculo:** classe principal que contém os atributos `marca` e `modelo` e o método `ligar()`.
+- **Carro:** herda de `Veiculo` e possui o atributo adicional `num_portas`.
+- **Moto:** herda de `Veiculo` e possui o atributo adicional `cilindradas`.
 
-    def ligar(self):
-        print(f"O veículo {self.marca} {self.modelo} está ligado.")
+## Funcionalidades
 
-class Carro(Veiculo):
-    def __init__(self, marca, modelo, num_portas):
-        super().__init__(marca, modelo)
-        self.num_portas = num_portas
+- Criar objetos de carros e motos.
+- Armazenar marca e modelo dos veículos.
+- Informar o número de portas de um carro.
+- Informar as cilindradas de uma moto.
+- Exibir mensagens diferentes ao ligar cada tipo de veículo.
 
-    def ligar(self):
-        print(f"O carro {self.marca} {self.modelo} com {self.num_portas} portas está ligado.")
+## Tecnologias
 
-class Moto(Veiculo):
-    def __init__(self, marca, modelo, cilindradas):
-        super().__init__(marca, modelo)
-        self.cilindradas = cilindradas
+- Python
+- Visual Studio Code
 
-    def ligar(self):
-        print(f"A moto {self.marca} {self.modelo} está ligando com {self.cilindradas} cilindradas.")
+---
 
-carro = Carro("Chevrolet", "Onix", 4)
-moto = Moto("BMW", "Motorrad", 500)
-
-carro.ligar()
-moto.ligar()
+Desenvolvido por **Júllia Andrade**, durante o curso de **Desenvolvimento de Sistemas**.
